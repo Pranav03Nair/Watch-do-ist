@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
-import type { AuthenticatedRequest } from "../middleware/auth.middleware";
+import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
 
-import { Movie } from "../models/movie.model";
-import uploadToCloudinary from "../utils/cloudinary";
+import { Movie } from "../models/movie.model.js";
+import uploadToCloudinary from "../utils/cloudinary.js";
 
 export const createMovie = async (req: AuthenticatedRequest, res: Response) => {
   try {
@@ -81,6 +81,7 @@ export const updateMovie = async (req: AuthenticatedRequest, res: Response) => {
         req.file.buffer,
         req.body.title || movie.title
       );
+      // @ts-ignore
       movie.posterUrl = result.secure_url;
     }
 

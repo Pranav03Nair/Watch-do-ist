@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { User } from "../models/user.model";
-import { signToken } from "../utils/jwt";
+import { User } from "../models/user.model.js";
+import { signToken } from "../utils/jwt.js";
 
 export const register = async (req: Request, res: Response) => {
   try {
